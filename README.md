@@ -20,8 +20,8 @@
   $ go run siteMonitor.go
 ```
 
-- if want to modify sites include in Sites.txt file
+- if want to modify the sites include in Sites.txt file
 
 #### Authors
 
-@gcaldeira2
+@guilhermecaldeira2
