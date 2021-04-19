@@ -113,20 +113,20 @@ func testSite(site string) {
 
 	if res.StatusCode == 200 {
 		message = "On air 👏"
-		logTest(site, true)
+		logTest(site, true, "🎉🎉")
 	} else {
 		message = "Is down 😱"
-		logTest(site, false)
+		logTest(site, false, "😰😰")
 	}
 	fmt.Println("> Testing site:", site, "->", message, "witch statusCode:", res.StatusCode)
 }
 
-func logTest(site string, status bool) {
+func logTest(site string, status bool, emoji string) {
 	file, err := os.OpenFile("log.txt", os.O_WRONLY|os.O_CREATE|os.O_APPEND, 0666)
 
 	verifyErr(err)
 
-	_, err = file.WriteString(time.Now().Format("2006-02-01 15:04:05") + " - " + site + " - online: " + strconv.FormatBool(status) + "\n")
+	_, err = file.WriteString(time.Now().Format("2006-02-01 15:04:05") + " - " + site + " - online: " + strconv.FormatBool(status) + " " + emoji + " " + "\n")
 
 	verifyErr(err)
 
